@@ -2,14 +2,15 @@ let id = 1;
 const arrayOfCats = [];
 
 class Cat {
-	constructor(name, age){
-	this.name = name;
-	this.age = age;
+	constructor(data){
+	this.name = data['name'];
+	this.age = data['age'];
 	this.id = id++;
 	}
-	static create(name, age){
-	let cat = new Cat(name, age);
+	static create(data){
+	let cat = new Cat(data);
 	arrayOfCats.push(cat);
+	console.log(arrayOfCats);
 	}
 	static all(){
 		return arrayOfCats;
@@ -29,6 +30,6 @@ class Cat {
 		}
 }
 
-Cat.create("gerry", 4)
+Cat.create({name: "jim", age: 4});
 
 module.exports = Cat
