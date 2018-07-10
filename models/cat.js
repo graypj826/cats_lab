@@ -15,13 +15,20 @@ class Cat {
 		return arrayOfCats;
 	}
 	static findOne(id){
-		for (i = 0; i < arrayOfCats.length; i++){
+		for (let i = 0; i < arrayOfCats.length; i++){
 			if(id == arrayOfCats[i]['id']){
 				return arrayOfCats[i]
 			}
 		}
 	}
+	static update(id, updatedCat){
+		let ogCat = Cat.findOne(id);
+		ogCat['name'] = updatedCat['name'];
+		ogCat['age'] = updatedCat['age'];
+		console.log(arrayOfCats);
+		}
 }
+
 Cat.create("gerry", 4)
 
 module.exports = Cat
