@@ -2,13 +2,16 @@
 <html>
 <head>
 	<title>Cat App Mockup</title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<img src="http://smitkit.com/wp-content/uploads/2017/11/Cat-Kitten-Boarding.png">
 	<h1>Cats Home Page</h1>
 	<h2>Find out more about our cats.</h2>
 	
 	<% for (let i = 0; i < catsList.length; i++) { %>
-		<h3><a href=""><%=catsList[i].name %></a></h3>
+
+		<h3><a href="/cats/<%= catsList[i].id %>"><%=catsList[i].name %></a></h3>
 	<%}%>
 </body>
 </html>
