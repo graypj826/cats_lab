@@ -11,6 +11,9 @@ app.get("/cats", (req, res) => {
 	res.render("index.ejs", {catsList:Cats.all()})
 });
 
+app.get("/cats/new", (req, res) => {
+	res.render("new.ejs", {})
+});
 
 app.get("/cats/:id", (req, res) => {
 	res.render("show.ejs", {cat:Cats.findOne(req.params.id)})
@@ -21,9 +24,7 @@ app.post("/cats", (req, res) => {
 	res.redirect("/cats");
 })
 
-app.get("/cats/new", (req, res) => {
-	res.render("new.ejs", {})
-});
+
 
 
 
