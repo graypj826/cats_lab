@@ -12,9 +12,7 @@ app.get("/cats", (req, res) => {
 });
 
 
-app.get("/cats/:id", (req, res) => {
-	res.render("show.ejs", {cat:Cats.findOne(req.params.id)})
-});
+
 
 app.post("/cats", (req, res) => {
 	Cats.create(req.body.name, req.body.age);
@@ -23,6 +21,10 @@ app.post("/cats", (req, res) => {
 
 app.get("/cats/new", (req, res) => {
 	res.render("new.ejs", {})
+});
+
+app.get("/cats/:id", (req, res) => {
+	res.render("show.ejs", {cat:Cats.findOne(req.params.id)})
 });
 
 
