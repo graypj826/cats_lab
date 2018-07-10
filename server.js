@@ -15,40 +15,23 @@ app.get("/cats/new", (req, res) => {
 	res.render("new.ejs", {})
 });
 
-app.get("/cats/:id", (req, res) => {
-	res.render("show.ejs", {cat:Cats.findOne(req.params.id)})
-});
-
 app.post("/cats", (req, res) => {
 	Cats.create(req.body.name, req.body.age);
 	res.redirect("/cats");
 })
 
+app.get("/cats/:id", (req, res) => {
+	res.render("show.ejs", {cat:Cats.findOne(req.params.id)})
+});
 
+app.get("/cats/:id/edit", (req, res) => {
+	res.render("edit.ejs", {cat:Cats.findOne(req.params.id)})
+})
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+app.post("/cats/:id", (req, res) => {
+	Cats.update(req.body.name, req.body.age);
+	res.redirect("/cats/:id");
+})
 
 app.listen(3000, () => {
 
