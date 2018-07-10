@@ -2,13 +2,15 @@
 <html>
 <head>
 	<title></title>
+<link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
+	<img src="http://smitkit.com/wp-content/uploads/2017/11/Cat-Kitten-Boarding.png">
 <h1>Build a Cat</h1>
-<form class="build-a-cat">
-	<input type="input" id="cat-name" placeholder="cat's name">
-	<input type="input" id="cat-age" placeholder="cat's age">
-	<input type="input" id="cat-id" placeholder="cat's id">
+<form class="build-a-cat" action="/cats" method="POST">
+	Name: <input type="input" id="cat-name" name="name" placeholder="cat's name">
+	Age:<input type="input" id="cat-age" name="age" placeholder="cat's age">
+	ID: <input type="input" id="cat-id" name="id" placeholder="cat's id">
 	<input type="submit" id="create cat">
 
 </form>
