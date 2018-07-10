@@ -17,7 +17,7 @@ app.get("/cats/:id", (req, res) => {
 });
 
 app.post("/cats", (req, res) => {
-	Cats.create(req.body);
+	Cats.create(req.body.name, req.body.age);
 	res.redirect("/cats");
 })
 
