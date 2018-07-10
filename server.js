@@ -29,7 +29,7 @@ app.get("/cats/:id/edit", (req, res) => {
 })
 
 app.post("/cats/:id", (req, res) => {
-	Cats.update(req.body.name, req.body.age);
+	Cats.update(req.body.id, req.body);
 	res.redirect("/cats/:id");
 })
 
