@@ -28,7 +28,7 @@ app.get("/cats/:id/edit", (req, res) => {
 	res.render("edit.ejs", {cat:Cats.findOne(req.params.id)})
 })
 app.post("/cats/:id", (req, res) => {
-	Cats.update(req.body.name, req.body.age);
+	Cats.update(req.body.id, req.body);
 	res.redirect("/cats/:id");
 })
 
