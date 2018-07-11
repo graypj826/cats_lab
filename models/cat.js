@@ -27,7 +27,14 @@ class Cat {
 		ogCat['name'] = updatedCat['name'];
 		ogCat['age'] = updatedCat['age'];
 		console.log(arrayOfCats);
-		}
+	}
+	static delete(id) {
+		for (let i = 0; i < arrayOfCats.length; i++) {
+			if (arrayOfCats[i].id === id) {
+				arrayOfCats.splice(i, 1)
+			}
+		} 
+	}
 }
 
 Cat.create({name: "jim", age: 4});
