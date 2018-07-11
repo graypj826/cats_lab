@@ -2,15 +2,16 @@
 <html>
 <head>
 	<title></title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 </head>
-<body>
+<body class="edit">
 	<img src="http://smitkit.com/wp-content/uploads/2017/11/Cat-Kitten-Boarding.png">
 <h1>Edit a Cat</h1>
 <form class="build-a-cat" action="/cats/<%=cat.id%>" method="POST">
 	Name: <input type="input" id="cat-name" name="name" placeholder="<%= cat.name%>">
 	Age:<input type="input" id="cat-age" name="age" placeholder="<%= cat.age %>">
-	<input type="submit" id="create cat">
+	<input type="submit" id="create-cat">
 
 </form>
 </body>

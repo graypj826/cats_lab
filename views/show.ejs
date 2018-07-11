@@ -2,14 +2,15 @@
 <html>
 <head>
 	<title></title>
-<link rel="stylesheet" type="text/css" href="style.css">
+<link rel="stylesheet" type="text/css" href="/css/style.css">
+<link href="https://fonts.googleapis.com/css?family=Poiret+One" rel="stylesheet">
 </head>
 <body>
 	<img src="http://smitkit.com/wp-content/uploads/2017/11/Cat-Kitten-Boarding.png">
 	<h1>I'm a cat</h1>
-	<h2><%=cat.name%></h2>
-	<h2><%=cat.age%></h2>
-	<h2><%=cat.id%></h2>
+	<h2>Name: <%=cat.name%></h2>
+	<h2>Age: <%=cat.age%></h2>
+	<h2>ID: <%=cat.id%></h2>
 	<h3><a href="/cats">Back to Home</a></h3>
 	<h3><a href="/cats/<%= cat.id %>/edit">Edit</a></h3>
 </body>
