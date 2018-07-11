@@ -32,8 +32,8 @@ app.post("/cats/:id", (req, res) => {
 	Cats.update(req.params.id, req.body);
 	res.redirect("/cats/" + req.params.id);
 })
-app.delete("/cats/:id/edit", (req, res) => {
-	Cats.delete();
+app.delete("/cats/:id", (req, res) => {
+	Cats.delete(req.params.id);
 	res.redirect("/cats");
 })
 
