@@ -33,3 +33,4 @@ class Cat {
 Cat.create({name: "jim", age: 4});
 
 module.exports = Cat
+
