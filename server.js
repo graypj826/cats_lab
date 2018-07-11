@@ -6,7 +6,7 @@ const methodOverride = require('method-override');
 
 app.use(bodyParser.urlencoded({extended: false}))
 app.use(methodOverride('_method'));
-
+app.use(express.static(__dirname + '/public'));
 
 app.get("/cats", (req, res) => {
 	res.render("index.ejs", {catsList:Cats.all()})
@@ -33,7 +33,7 @@ app.post("/cats/:id", (req, res) => {
 	res.redirect("/cats/" + req.params.id);
 })
 app.delete("/cats/:id/edit", (req, res) => {
-	Cats.splice(req.params.id, 1);
+	Cats.delete();
 	res.redirect("/cats");
 })
 
