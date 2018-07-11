@@ -1,0 +1,35 @@
+body {
+	 background-color: orange;
+	 text-align:center;
+	 font-family: 'Poiret One', cursive;
+}
+
+h1 {
+	color: white;
+
+}
+
+h2 {
+	color :teal;
+}
+
+.index {
+	 background-color: lightgreen;
+	 text-align:center;
+}
+
+.new {
+	background-color: lightblue;
+	text-align: center;
+}
+
+.edit {
+	background-color: violet;
+}
+
+#create-cat {
+	background-color: yellow;
+	border-radius: 10px;
+	width: 80px;
+	height: 25px;
+}
