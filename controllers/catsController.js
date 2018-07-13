@@ -5,7 +5,14 @@ const Cats = require("../models/cat");
 
 
 router.get("/", (req, res) => {
-  res.render("index.ejs", { catsList: Cats.all() })
+  Cats.find({}, (err, foundCats) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.render("index.ejs", {catsList: foundCats});
+    }
+
+  })
 });
 
 router.get("/new", (req, res) => {
@@ -13,24 +20,57 @@ router.get("/new", (req, res) => {
 });
 
 router.post("/", (req, res) => {
-  Cats.create(req.body);
-  res.redirect("/cats");
+  Cats.create(req.body, (err, createdCat) => {
+    if (err) {
+      res.send(err);
+    } else {
+       res.redirect(`/cats/${createdCat.id}`);
+    }
+  });
+ 
 })
 
 router.get("/:id", (req, res) => {
-  res.render("show.ejs", { cat: Cats.findOne(req.params.id) })
+ Cats.findById(req.params.id, (err, cat) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.render("show.ejs", {cat: cat});
+    }
+
+  })
 });
 
 router.get("/:id/edit", (req, res) => {
-  res.render("edit.ejs", { cat: Cats.findOne(req.params.id) })
+  Cats.findById(req.params.id, (err, cat) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.render("edit.ejs", {cat: cat});
+    }
+
+  })
 })
 router.put("/:id", (req, res) => {
-  Cats.update(req.params.id, req.body);
-  res.redirect("/cats/" + req.params.id);
+  Cats.findByIdAndUpdate(req.params.id, req.body, {new: true}, (err, cat) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.redirect("/cats")
+    }
+
+  })
+  
 })
 router.delete("/:id", (req, res) => {
-  Cats.delete(req.params.id);
-  res.redirect("/cats");
+  Cats.findByIdAndRemove(req.params.id, (err, cat) => {
+    if(err) {
+      res.send(err);
+    } else {
+      res.redirect("/cats");
+    }
+
+  })
 })
 
 

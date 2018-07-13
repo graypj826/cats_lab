@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 const catController = require('./controllers/catsController');
+require("./db/db")
 
 const methodOverride = require('method-override');
 
