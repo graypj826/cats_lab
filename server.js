@@ -1,3 +1,33 @@
+const mongoose = require('mongoose');
+const db = mongoose.connection;
+
+const CatStats = require('./models/schema');
+
+mongoose.connect('mongodb://localhost:27017/cats', { useNewUrlParser: true });
+
+db.on('error', (err) => {
+	console.log(err, ' this is the error message');
+});
+
+db.on('connnected', () => {
+	console.log('cat_server is connected to mongodb');
+});
+
+CatStats.find({}), (err, response) => {
+	console.log('we are finding mongo');
+	console.log(err);
+};
+// CatStats.create({
+// 	name: 'John',
+// 	age: 5,
+// }, (err, response) => {
+// 	if (err) {
+// 		console.log(err);
+// 	} else {
+// 		console.log(response);
+// 	}
+// });
+
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
